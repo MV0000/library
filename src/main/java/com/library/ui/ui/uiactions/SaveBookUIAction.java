@@ -1,16 +1,18 @@
-package com.booklibrary.demo.ui.uiactions;
+package com.library.ui.ui.uiactions;
 
-import com.booklibrary.demo.mode.Book;
-import com.booklibrary.demo.services.AddBookService;
-import com.booklibrary.demo.ui.UIAction;
+import com.library.entity.Book;
+import com.library.services.BookServiceImpl;
+import com.library.ui.UIAction;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
 @Component
-public class AddBookUIAction implements UIAction {
+public class SaveBookUIAction implements UIAction {
 
-  AddBookService bookService = new AddBookService();
+    @Autowired
+    BookServiceImpl bookService;
 
     @Override
     public void execute() {
@@ -27,8 +29,8 @@ public class AddBookUIAction implements UIAction {
         int releaseDate = scanner.nextInt();
 
 
-        Book book = new Book(bookTitle,bookAuthor,releaseDate);
-        bookService.execute(book);
+        Book book = new Book(bookTitle, bookAuthor, releaseDate);
+        bookService.save(book);
 
     }
 

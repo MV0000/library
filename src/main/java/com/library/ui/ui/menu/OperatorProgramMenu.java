@@ -1,28 +1,28 @@
-package com.booklibrary.demo.ui;
+package com.library.ui.ui.menu;
 
-import com.booklibrary.demo.ui.uiactions.AddBookUIAction;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.library.ui.UIAction;
 import org.springframework.stereotype.Component;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
+
 @Component
-public class ProgramMenu {
+public class OperatorProgramMenu implements UIAction {
 
-    private Map<Integer, UIAction> menuNumberToUIActionMap;
+    private Map<Integer, UIAction> operatorMenuNumberToUIActionMap;
 
-    @Autowired
-    ProgramMenu(List<UIAction> uiActions) {
+    @Override
+    public void execute() {
 
-        menuNumberToUIActionMap = new HashMap<>();
-        menuNumberToUIActionMap.put(1, findUIAction(uiActions, AddBookUIAction.class));
-//        menuNumberToUIActionMap.put(2, findUIAction(uiActions, DeleteBookFromLibraryUIAction.class));
-//        menuNumberToUIActionMap.put(3, findUIAction(uiActions, FindBookByTitleUIAction.class));
-//        menuNumberToUIActionMap.put(4, findUIAction(uiActions, FindBookByAuthorUIAction.class));
-//        menuNumberToUIActionMap.put(5, findUIAction(uiActions, ShowAllBooksInLibraryUIAction.class));
+        while (true) {
+
+            printProgramMenu();
+            int menuNumber = getUserChoice();
+            executeSelectedMenuItem(menuNumber);
+
+        }
 
     }
 
@@ -43,6 +43,8 @@ public class ProgramMenu {
         System.out.println("4.  Find books by author");
         System.out.println("5.  Show all books in the library");
         System.out.println("6. Exit");
+
+
     }
 
     public int getUserChoice() {
@@ -52,6 +54,8 @@ public class ProgramMenu {
     }
 
     public void executeSelectedMenuItem(int selectedMenu) {
-        menuNumberToUIActionMap.get(selectedMenu).execute();
+        operatorMenuNumberToUIActionMap.get(selectedMenu).execute();
     }
+
+
 }

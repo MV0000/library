@@ -1,10 +1,14 @@
-package com.booklibrary.demo.mode;
+package com.library.entity;
+
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
-@Table(name="Clients")
+@Table(name="Book")
+@ToString
+@EqualsAndHashCode
 public class Book {
 
     @Id
@@ -24,8 +28,6 @@ public class Book {
 
     public Book() {
     }
-
-
 
     public Book(String bookTitle, String bookAuthor, int releaseDate) {
         this.bookTitle = bookTitle;
@@ -57,26 +59,5 @@ public class Book {
         this.releaseDate = releaseDate;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "bookId=" + bookId +
-                ", bookTitle='" + bookTitle + '\'' +
-                ", bookAuthor='" + bookAuthor + '\'' +
-                ", releaseDate=" + releaseDate +
-                '}';
-    }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Book book = (Book) o;
-        return releaseDate == book.releaseDate && Objects.equals(bookTitle, book.bookTitle) && Objects.equals(bookAuthor, book.bookAuthor);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(bookTitle, bookAuthor, releaseDate);
-    }
 }
