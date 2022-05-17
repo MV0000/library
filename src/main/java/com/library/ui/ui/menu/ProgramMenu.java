@@ -1,7 +1,7 @@
 package com.library.ui.ui.menu;
 
 import com.library.ui.UIAction;
-import com.library.ui.ui.uiactions.ExitMenuUIAction;
+import com.library.ui.ui.menu.uiactions.ExitMenuUIAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

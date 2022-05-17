@@ -1,4 +1,4 @@
-package com.library.ui.ui.uiactions;
+package com.library.ui.ui.menu.uiactions;
 
 import com.library.ui.UIAction;
 import org.springframework.stereotype.Component;

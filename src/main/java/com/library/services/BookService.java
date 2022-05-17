@@ -8,9 +8,14 @@ public interface BookService {
 
     public List<Book> findAll();
 
-    public Book findbyId(int bookId);
+    public void saveBook(Book book);
 
-    public void save(Book book);
+    public Book findBookByBookId(int bookId);
 
     public void deleteById(int bookId);
+
+    List<Book> findBooksByTitle( String bookTitle);
+
+    List<Book> findBooksByAuthor(String bookAuthor);
+
 }

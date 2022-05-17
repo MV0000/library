@@ -1,4 +1,4 @@
-package com.library.ui.ui.uiactions;
+package com.library.ui.ui.menu.uiactions;
 
 import com.library.entity.Book;
 import com.library.services.BookServiceImpl;
@@ -30,7 +30,8 @@ public class SaveBookUIAction implements UIAction {
 
 
         Book book = new Book(bookTitle, bookAuthor, releaseDate);
-        bookService.save(book);
+        bookService.saveBook(book);
+        System.out.println("Book" + book + "saved");
 
     }
 

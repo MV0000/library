@@ -5,16 +5,21 @@ package com.library.repository;
 import com.library.entity.Book;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface BookRepository {
 
+    List<Book> findAll();
+
     void saveBook(Book bookToSave);
 
-    List<Book> findAll();
+    Book findBookByBookId(int bookId);
+
+    public void deleteById(int bookId);
 
     List<Book> findBooksByTitle( String bookTitle);
 
-    List<Book> findBookByAuthor(String bookAuthor);
+    List<Book> findBooksByAuthor(String bookAuthor);
 
-    Book findBookByBookId(int bookId);
+
 }

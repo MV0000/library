@@ -25,6 +25,19 @@ public class LibraryApplication {
         }
 
 
+        /*
+
+
+        UI - menu
+        Service -
+        Repository
+        DB
+
+
+
+         */
+
+
     }
 }
 

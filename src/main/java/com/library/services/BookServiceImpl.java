@@ -9,9 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 
-//@Component
-//@Transactional
 @Service
+@Transactional
 public class BookServiceImpl implements BookService{
 
     private BookRepository repository;
@@ -31,13 +30,15 @@ public class BookServiceImpl implements BookService{
 
     @Override
     @Transactional
-    public Book findbyId(int bookId) {
+    public Book findBookByBookId(int bookId) {
         return repository.findBookByBookId(bookId);
     }
 
     @Override
     @Transactional
-    public void save(Book book) {
+    public void saveBook(Book book) {
+
+        repository.saveBook(book);
 
     }
 
@@ -45,5 +46,17 @@ public class BookServiceImpl implements BookService{
     @Transactional
     public void deleteById(int bookId) {
 
+        repository.deleteById(bookId);
+
+    }
+
+    @Override
+    public List<Book> findBooksByTitle(String bookTitle) {
+        return repository.findBooksByTitle(bookTitle);
+    }
+
+    @Override
+    public List<Book> findBooksByAuthor(String bookAuthor) {
+        return repository.findBooksByAuthor(bookAuthor);
     }
 }
